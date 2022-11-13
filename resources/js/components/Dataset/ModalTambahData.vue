@@ -17,30 +17,44 @@
             <form role="form" @submit.prevent="handleSubmit(onSubmit)">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="Bulan">Bulan</label>
-                    <ValidationProvider name="Bulan" rules="alpha|required" v-slot="{ errors }">
-                      <input type="text" v-model="bulan" class="form-control" id="Bulan" placeholder="Enter Bulan">
+                    <label for="nof">Number Of Files </label>
+                    <ValidationProvider name="nof" rules="integer|required" v-slot="{ errors }">
+                      <input type="text" v-model="nof" class="form-control" id="nof" placeholder="Enter Number Of Files">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
                   <div class="form-group">
-                    <label for="IndexBulan">Index Bulan</label>
-                    <ValidationProvider name="IndexBulan" rules="integer|required" v-slot="{ errors }">
-                      <input type="text" v-model="indexBulan" class="form-control" id="IndexBulan" placeholder="Enter Index Bulan">
+                    <label for="tmp">Total MB Processed</label>
+                    <ValidationProvider name="tmp" rules="integer|required" v-slot="{ errors }">
+                      <input type="text" v-model="tmp" class="form-control" id="tmp" placeholder="Enter Total MB Processed">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
                   <div class="form-group">
-                    <label for="Tahun">Tahun</label>
-                    <ValidationProvider name="Tahun" rules="integer|required" v-slot="{ errors }">
-                      <input type="text" v-model="tahun" class="form-control" id="Tahun" placeholder="Enter Tahun">
+                    <label for="tp">Throughput mb/sec</label>
+                    <ValidationProvider name="tp" rules="integer|required" v-slot="{ errors }">
+                      <input type="text" v-model="tp" class="form-control" id="tp" placeholder="Enter Throughput mb/sec">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
                   <div class="form-group">
-                    <label for="JumlahPenumpang">Jumlah Penumpang</label>
-                    <ValidationProvider name="JumlahPenumpang" rules="integer|required" v-slot="{ errors }">
-                      <input type="text" v-model="jumlahPenumpang" class="form-control" id="JumlahPenumpang" placeholder="Enter Jumlah Penumpang">
+                    <label for="aio">Avg IO rate mb/sec</label>
+                    <ValidationProvider name="aio" rules="integer|required" v-slot="{ errors }">
+                      <input type="text" v-model="aio" class="form-control" id="aio" placeholder="Enter Avg IO rate mb/sec">
+                      <span>{{ errors[0] }}</span>
+                    </ValidationProvider>
+                  </div>
+                  <div class="form-group">
+                    <label for="iostd">IO rate std deviation</label>
+                    <ValidationProvider name="iostd" rules="integer|required" v-slot="{ errors }">
+                      <input type="text" v-model="iostd" class="form-control" id="iostd" placeholder="Enter IO rate std deviation">
+                      <span>{{ errors[0] }}</span>
+                    </ValidationProvider>
+                  </div>
+                  <div class="form-group">
+                    <label for="exec">Test exec time sec</label>
+                    <ValidationProvider name="exec" rules="integer|required" v-slot="{ errors }">
+                      <input type="text" v-model="exec" class="form-control" id="exec" placeholder="Enter Test exec time sec">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
@@ -79,10 +93,12 @@ extend('required', {
 export default {
   data() {
     return {
-      jumlahPenumpang:null,
-      indexBulan:null,
-      tahun:null,
-      bulan:null,
+      nof:null,
+      tmp:null,
+      tp:null,
+      aio:null,
+      iostd:null,
+      exec:null,
     }
   },
   components: {
@@ -93,10 +109,12 @@ export default {
   methods: {
     onSubmit(){
       let objectReq ={
-        Bulan:this.bulan,
-        Index_bulan:this.indexBulan,
-        Tahun:this.tahun,
-        Jumlah_penumpang:this.jumlahPenumpang,
+        nof:this.nof,
+        tmp:this.tmp,
+        tp:this.tp,
+        aio:this.aio,
+        iostd:this.iostd,
+        exec:this.exec,
       }
 
       this.$store.dispatch("penumpangKeretaStore/addData",objectReq);

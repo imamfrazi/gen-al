@@ -1971,6 +1971,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2193,6 +2197,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2208,10 +2226,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      jumlahPenumpang: null,
-      indexBulan: null,
-      tahun: null,
-      bulan: null
+      nof: null,
+      tmp: null,
+      tp: null,
+      aio: null,
+      iostd: null,
+      exec: null
     };
   },
   components: {
@@ -2221,10 +2241,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     onSubmit: function onSubmit() {
       var objectReq = {
-        Bulan: this.bulan,
-        Index_bulan: this.indexBulan,
-        Tahun: this.tahun,
-        Jumlah_penumpang: this.jumlahPenumpang
+        nof: this.nof,
+        tmp: this.tmp,
+        tp: this.tp,
+        aio: this.aio,
+        iostd: this.iostd,
+        exec: this.exec
       };
       this.$store.dispatch("penumpangKeretaStore/addData", objectReq);
       var load = this.$store.dispatch("penumpangKeretaStore/getDataPenumpangAction");
@@ -2319,6 +2341,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2335,10 +2368,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   props: ['items'],
   data: function data() {
     return {
-      jumlahPenumpang: null,
-      indexBulan: null,
-      tahun: null,
-      bulan: null
+      nof: null,
+      tmp: null,
+      tp: null,
+      aio: null,
+      iostd: null,
+      exec: null
     };
   },
   components: {
@@ -2348,11 +2383,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     onSubmit: function onSubmit() {
       var objectReq = {
-        Id: this.items.Id,
-        Bulan: this.items.Bulan,
-        Index_bulan: this.items.Index_bulan,
-        Tahun: this.items.Tahun,
-        Jumlah_penumpang: this.items.Jumlah_penumpang
+        nof: parseFloat(this.items.nof),
+        tmp: parseFloat(this.items.tmp),
+        tp: parseFloat(this.items.tp),
+        aio: parseFloat(this.items.aio),
+        iostd: parseFloat(this.items.iostd),
+        exec: parseFloat(this.items.exec),
+        id: this.items.id
       };
       console.log(objectReq);
       this.$store.dispatch("penumpangKeretaStore/updateData", objectReq);
@@ -4440,7 +4477,7 @@ var updatePenumpangKereta = /*#__PURE__*/function () {
           case 0:
             _context4.prev = 0;
             _context4.next = 3;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().put('/api/updateData/' + payload.Id, payload);
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().put('/api/updateData/' + payload.id, payload);
 
           case 3:
             _response4 = _context4.sent;
@@ -83206,7 +83243,7 @@ var render = function() {
         _c(
           "table",
           {
-            staticClass: "table table-bordered table-hover",
+            staticClass: "table table-bordered table-hover ",
             attrs: { id: "example2" }
           },
           [
@@ -83214,13 +83251,17 @@ var render = function() {
               _c("tr", [
                 _c("th", [_vm._v("No")]),
                 _vm._v(" "),
-                _c("th", [_vm._v("Bulan")]),
+                _c("th", [_vm._v("No. Of files")]),
                 _vm._v(" "),
-                _c("th", [_vm._v("Index Bulan")]),
+                _c("th", [_vm._v("Total MB Processed")]),
                 _vm._v(" "),
-                _c("th", [_vm._v("Tahun")]),
+                _c("th", [_vm._v("Throughput mb/sec")]),
                 _vm._v(" "),
-                _c("th", [_vm._v("Jumlah Penumpang")]),
+                _c("th", [_vm._v("Avg IO rate mb/sec")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("IO rate std deviation")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("Test exec time sec")]),
                 _vm._v(" "),
                 _vm.statusAkun ? _c("th", [_vm._v("Actions")]) : _vm._e()
               ])
@@ -83232,13 +83273,17 @@ var render = function() {
                 return _c("tr", { key: index }, [
                   _c("td", [_vm._v(_vm._s(++index))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(item.Bulan))]),
+                  _c("td", [_vm._v(_vm._s(item.nof))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(item.Index_bulan))]),
+                  _c("td", [_vm._v(_vm._s(item.tmp))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(item.Tahun))]),
+                  _c("td", [_vm._v(_vm._s(item.tp))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(item.Jumlah_penumpang))]),
+                  _c("td", [_vm._v(_vm._s(item.aio))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.iostd))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(item.exec))]),
                   _vm._v(" "),
                   _c("td", [
                     _c("div", [
@@ -83295,7 +83340,7 @@ var render = function() {
                           staticClass: "btn btn-danger",
                           on: {
                             click: function($event) {
-                              return _vm.openDeleted(item.Id)
+                              return _vm.openDeleted(item.id)
                             }
                           }
                         },
@@ -83477,79 +83522,13 @@ var render = function() {
                                 "div",
                                 { staticClass: "form-group" },
                                 [
-                                  _c("label", { attrs: { for: "Bulan" } }, [
-                                    _vm._v("Bulan")
+                                  _c("label", { attrs: { for: "nof" } }, [
+                                    _vm._v("Number Of Files ")
                                   ]),
                                   _vm._v(" "),
                                   _c("ValidationProvider", {
                                     attrs: {
-                                      name: "Bulan",
-                                      rules: "alpha|required"
-                                    },
-                                    scopedSlots: _vm._u(
-                                      [
-                                        {
-                                          key: "default",
-                                          fn: function(ref) {
-                                            var errors = ref.errors
-                                            return [
-                                              _c("input", {
-                                                directives: [
-                                                  {
-                                                    name: "model",
-                                                    rawName: "v-model",
-                                                    value: _vm.bulan,
-                                                    expression: "bulan"
-                                                  }
-                                                ],
-                                                staticClass: "form-control",
-                                                attrs: {
-                                                  type: "text",
-                                                  id: "Bulan",
-                                                  placeholder: "Enter Bulan"
-                                                },
-                                                domProps: { value: _vm.bulan },
-                                                on: {
-                                                  input: function($event) {
-                                                    if (
-                                                      $event.target.composing
-                                                    ) {
-                                                      return
-                                                    }
-                                                    _vm.bulan =
-                                                      $event.target.value
-                                                  }
-                                                }
-                                              }),
-                                              _vm._v(" "),
-                                              _c("span", [
-                                                _vm._v(_vm._s(errors[0]))
-                                              ])
-                                            ]
-                                          }
-                                        }
-                                      ],
-                                      null,
-                                      true
-                                    )
-                                  })
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "div",
-                                { staticClass: "form-group" },
-                                [
-                                  _c(
-                                    "label",
-                                    { attrs: { for: "IndexBulan" } },
-                                    [_vm._v("Index Bulan")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c("ValidationProvider", {
-                                    attrs: {
-                                      name: "IndexBulan",
+                                      name: "nof",
                                       rules: "integer|required"
                                     },
                                     scopedSlots: _vm._u(
@@ -83564,20 +83543,18 @@ var render = function() {
                                                   {
                                                     name: "model",
                                                     rawName: "v-model",
-                                                    value: _vm.indexBulan,
-                                                    expression: "indexBulan"
+                                                    value: _vm.nof,
+                                                    expression: "nof"
                                                   }
                                                 ],
                                                 staticClass: "form-control",
                                                 attrs: {
                                                   type: "text",
-                                                  id: "IndexBulan",
+                                                  id: "nof",
                                                   placeholder:
-                                                    "Enter Index Bulan"
+                                                    "Enter Number Of Files"
                                                 },
-                                                domProps: {
-                                                  value: _vm.indexBulan
-                                                },
+                                                domProps: { value: _vm.nof },
                                                 on: {
                                                   input: function($event) {
                                                     if (
@@ -83585,7 +83562,7 @@ var render = function() {
                                                     ) {
                                                       return
                                                     }
-                                                    _vm.indexBulan =
+                                                    _vm.nof =
                                                       $event.target.value
                                                   }
                                                 }
@@ -83610,13 +83587,13 @@ var render = function() {
                                 "div",
                                 { staticClass: "form-group" },
                                 [
-                                  _c("label", { attrs: { for: "Tahun" } }, [
-                                    _vm._v("Tahun")
+                                  _c("label", { attrs: { for: "tmp" } }, [
+                                    _vm._v("Total MB Processed")
                                   ]),
                                   _vm._v(" "),
                                   _c("ValidationProvider", {
                                     attrs: {
-                                      name: "Tahun",
+                                      name: "tmp",
                                       rules: "integer|required"
                                     },
                                     scopedSlots: _vm._u(
@@ -83631,17 +83608,18 @@ var render = function() {
                                                   {
                                                     name: "model",
                                                     rawName: "v-model",
-                                                    value: _vm.tahun,
-                                                    expression: "tahun"
+                                                    value: _vm.tmp,
+                                                    expression: "tmp"
                                                   }
                                                 ],
                                                 staticClass: "form-control",
                                                 attrs: {
                                                   type: "text",
-                                                  id: "Tahun",
-                                                  placeholder: "Enter Tahun"
+                                                  id: "tmp",
+                                                  placeholder:
+                                                    "Enter Total MB Processed"
                                                 },
-                                                domProps: { value: _vm.tahun },
+                                                domProps: { value: _vm.tmp },
                                                 on: {
                                                   input: function($event) {
                                                     if (
@@ -83649,7 +83627,7 @@ var render = function() {
                                                     ) {
                                                       return
                                                     }
-                                                    _vm.tahun =
+                                                    _vm.tmp =
                                                       $event.target.value
                                                   }
                                                 }
@@ -83674,15 +83652,13 @@ var render = function() {
                                 "div",
                                 { staticClass: "form-group" },
                                 [
-                                  _c(
-                                    "label",
-                                    { attrs: { for: "JumlahPenumpang" } },
-                                    [_vm._v("Jumlah Penumpang")]
-                                  ),
+                                  _c("label", { attrs: { for: "tp" } }, [
+                                    _vm._v("Throughput mb/sec")
+                                  ]),
                                   _vm._v(" "),
                                   _c("ValidationProvider", {
                                     attrs: {
-                                      name: "JumlahPenumpang",
+                                      name: "tp",
                                       rules: "integer|required"
                                     },
                                     scopedSlots: _vm._u(
@@ -83697,21 +83673,18 @@ var render = function() {
                                                   {
                                                     name: "model",
                                                     rawName: "v-model",
-                                                    value: _vm.jumlahPenumpang,
-                                                    expression:
-                                                      "jumlahPenumpang"
+                                                    value: _vm.tp,
+                                                    expression: "tp"
                                                   }
                                                 ],
                                                 staticClass: "form-control",
                                                 attrs: {
                                                   type: "text",
-                                                  id: "JumlahPenumpang",
+                                                  id: "tp",
                                                   placeholder:
-                                                    "Enter Jumlah Penumpang"
+                                                    "Enter Throughput mb/sec"
                                                 },
-                                                domProps: {
-                                                  value: _vm.jumlahPenumpang
-                                                },
+                                                domProps: { value: _vm.tp },
                                                 on: {
                                                   input: function($event) {
                                                     if (
@@ -83719,7 +83692,201 @@ var render = function() {
                                                     ) {
                                                       return
                                                     }
-                                                    _vm.jumlahPenumpang =
+                                                    _vm.tp = $event.target.value
+                                                  }
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c("span", [
+                                                _vm._v(_vm._s(errors[0]))
+                                              ])
+                                            ]
+                                          }
+                                        }
+                                      ],
+                                      null,
+                                      true
+                                    )
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "form-group" },
+                                [
+                                  _c("label", { attrs: { for: "aio" } }, [
+                                    _vm._v("Avg IO rate mb/sec")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      name: "aio",
+                                      rules: "integer|required"
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function(ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("input", {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: _vm.aio,
+                                                    expression: "aio"
+                                                  }
+                                                ],
+                                                staticClass: "form-control",
+                                                attrs: {
+                                                  type: "text",
+                                                  id: "aio",
+                                                  placeholder:
+                                                    "Enter Avg IO rate mb/sec"
+                                                },
+                                                domProps: { value: _vm.aio },
+                                                on: {
+                                                  input: function($event) {
+                                                    if (
+                                                      $event.target.composing
+                                                    ) {
+                                                      return
+                                                    }
+                                                    _vm.aio =
+                                                      $event.target.value
+                                                  }
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c("span", [
+                                                _vm._v(_vm._s(errors[0]))
+                                              ])
+                                            ]
+                                          }
+                                        }
+                                      ],
+                                      null,
+                                      true
+                                    )
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "form-group" },
+                                [
+                                  _c("label", { attrs: { for: "iostd" } }, [
+                                    _vm._v("IO rate std deviation")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      name: "iostd",
+                                      rules: "integer|required"
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function(ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("input", {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: _vm.iostd,
+                                                    expression: "iostd"
+                                                  }
+                                                ],
+                                                staticClass: "form-control",
+                                                attrs: {
+                                                  type: "text",
+                                                  id: "iostd",
+                                                  placeholder:
+                                                    "Enter IO rate std deviation"
+                                                },
+                                                domProps: { value: _vm.iostd },
+                                                on: {
+                                                  input: function($event) {
+                                                    if (
+                                                      $event.target.composing
+                                                    ) {
+                                                      return
+                                                    }
+                                                    _vm.iostd =
+                                                      $event.target.value
+                                                  }
+                                                }
+                                              }),
+                                              _vm._v(" "),
+                                              _c("span", [
+                                                _vm._v(_vm._s(errors[0]))
+                                              ])
+                                            ]
+                                          }
+                                        }
+                                      ],
+                                      null,
+                                      true
+                                    )
+                                  })
+                                ],
+                                1
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "form-group" },
+                                [
+                                  _c("label", { attrs: { for: "exec" } }, [
+                                    _vm._v("Test exec time sec")
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("ValidationProvider", {
+                                    attrs: {
+                                      name: "exec",
+                                      rules: "integer|required"
+                                    },
+                                    scopedSlots: _vm._u(
+                                      [
+                                        {
+                                          key: "default",
+                                          fn: function(ref) {
+                                            var errors = ref.errors
+                                            return [
+                                              _c("input", {
+                                                directives: [
+                                                  {
+                                                    name: "model",
+                                                    rawName: "v-model",
+                                                    value: _vm.exec,
+                                                    expression: "exec"
+                                                  }
+                                                ],
+                                                staticClass: "form-control",
+                                                attrs: {
+                                                  type: "text",
+                                                  id: "exec",
+                                                  placeholder:
+                                                    "Enter Test exec time sec"
+                                                },
+                                                domProps: { value: _vm.exec },
+                                                on: {
+                                                  input: function($event) {
+                                                    if (
+                                                      $event.target.composing
+                                                    ) {
+                                                      return
+                                                    }
+                                                    _vm.exec =
                                                       $event.target.value
                                                   }
                                                 }
@@ -83836,15 +84003,7 @@ var render = function() {
   return _c("div", { attrs: { id: "modal_edit" } }, [
     _c("div", { staticClass: "modal-dialog" }, [
       _c("div", { staticClass: "modal-content" }, [
-        _c("div", { staticClass: "modal-header" }, [
-          _vm._m(0),
-          _vm._v(
-            "\n        \n            " +
-              _vm._s(_vm.items) +
-              "\n        \n            "
-          ),
-          _vm._m(1)
-        ]),
+        _vm._m(0),
         _vm._v(" "),
         _c(
           "div",
@@ -83874,80 +84033,13 @@ var render = function() {
                               "div",
                               { staticClass: "form-group" },
                               [
-                                _c("label", { attrs: { for: "Bulan" } }, [
-                                  _vm._v("Bulan")
+                                _c("label", { attrs: { for: "nof" } }, [
+                                  _vm._v("Number Of Files ")
                                 ]),
                                 _vm._v(" "),
                                 _c("ValidationProvider", {
                                   attrs: {
-                                    name: "Bulan",
-                                    rules: "alpha|required"
-                                  },
-                                  scopedSlots: _vm._u(
-                                    [
-                                      {
-                                        key: "default",
-                                        fn: function(ref) {
-                                          var errors = ref.errors
-                                          return [
-                                            _c("input", {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value: _vm.items.Bulan,
-                                                  expression: "items.Bulan"
-                                                }
-                                              ],
-                                              staticClass: "form-control",
-                                              attrs: {
-                                                type: "text",
-                                                id: "Bulan",
-                                                placeholder: "Enter Bulan"
-                                              },
-                                              domProps: {
-                                                value: _vm.items.Bulan
-                                              },
-                                              on: {
-                                                input: function($event) {
-                                                  if ($event.target.composing) {
-                                                    return
-                                                  }
-                                                  _vm.$set(
-                                                    _vm.items,
-                                                    "Bulan",
-                                                    $event.target.value
-                                                  )
-                                                }
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("span", [
-                                              _vm._v(_vm._s(errors[0]))
-                                            ])
-                                          ]
-                                        }
-                                      }
-                                    ],
-                                    null,
-                                    true
-                                  )
-                                })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "form-group" },
-                              [
-                                _c("label", { attrs: { for: "IndexBulan" } }, [
-                                  _vm._v("Index Bulan")
-                                ]),
-                                _vm._v(" "),
-                                _c("ValidationProvider", {
-                                  attrs: {
-                                    name: "IndexBulan",
+                                    name: "nof",
                                     rules: "integer|required"
                                   },
                                   scopedSlots: _vm._u(
@@ -83962,159 +84054,19 @@ var render = function() {
                                                 {
                                                   name: "model",
                                                   rawName: "v-model",
-                                                  value: _vm.items.Index_bulan,
-                                                  expression:
-                                                    "items.Index_bulan"
+                                                  value: _vm.items.nof,
+                                                  expression: "items.nof"
                                                 }
                                               ],
                                               staticClass: "form-control",
                                               attrs: {
                                                 type: "text",
-                                                id: "IndexBulan",
-                                                placeholder: "Enter Index Bulan"
-                                              },
-                                              domProps: {
-                                                value: _vm.items.Index_bulan
-                                              },
-                                              on: {
-                                                input: function($event) {
-                                                  if ($event.target.composing) {
-                                                    return
-                                                  }
-                                                  _vm.$set(
-                                                    _vm.items,
-                                                    "Index_bulan",
-                                                    $event.target.value
-                                                  )
-                                                }
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("span", [
-                                              _vm._v(_vm._s(errors[0]))
-                                            ])
-                                          ]
-                                        }
-                                      }
-                                    ],
-                                    null,
-                                    true
-                                  )
-                                })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "form-group" },
-                              [
-                                _c("label", { attrs: { for: "Tahun" } }, [
-                                  _vm._v("Tahun")
-                                ]),
-                                _vm._v(" "),
-                                _c("ValidationProvider", {
-                                  attrs: {
-                                    name: "Tahun",
-                                    rules: "integer|required"
-                                  },
-                                  scopedSlots: _vm._u(
-                                    [
-                                      {
-                                        key: "default",
-                                        fn: function(ref) {
-                                          var errors = ref.errors
-                                          return [
-                                            _c("input", {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value: _vm.items.Tahun,
-                                                  expression: "items.Tahun"
-                                                }
-                                              ],
-                                              staticClass: "form-control",
-                                              attrs: {
-                                                type: "text",
-                                                id: "Tahun",
-                                                placeholder: "Enter Tahun"
-                                              },
-                                              domProps: {
-                                                value: _vm.items.Tahun
-                                              },
-                                              on: {
-                                                input: function($event) {
-                                                  if ($event.target.composing) {
-                                                    return
-                                                  }
-                                                  _vm.$set(
-                                                    _vm.items,
-                                                    "Tahun",
-                                                    $event.target.value
-                                                  )
-                                                }
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("span", [
-                                              _vm._v(_vm._s(errors[0]))
-                                            ])
-                                          ]
-                                        }
-                                      }
-                                    ],
-                                    null,
-                                    true
-                                  )
-                                })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "form-group" },
-                              [
-                                _c(
-                                  "label",
-                                  { attrs: { for: "JumlahPenumpang" } },
-                                  [_vm._v("Jumlah Penumpang")]
-                                ),
-                                _vm._v(" "),
-                                _c("ValidationProvider", {
-                                  attrs: {
-                                    name: "JumlahPenumpang",
-                                    rules: "integer|required"
-                                  },
-                                  scopedSlots: _vm._u(
-                                    [
-                                      {
-                                        key: "default",
-                                        fn: function(ref) {
-                                          var errors = ref.errors
-                                          return [
-                                            _c("input", {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value:
-                                                    _vm.items.Jumlah_penumpang,
-                                                  expression:
-                                                    "items.Jumlah_penumpang"
-                                                }
-                                              ],
-                                              staticClass: "form-control",
-                                              attrs: {
-                                                type: "text",
-                                                id: "JumlahPenumpang",
+                                                id: "nof",
                                                 placeholder:
-                                                  "Enter Jumlah Penumpang"
+                                                  "Enter Number Of Files"
                                               },
                                               domProps: {
-                                                value:
-                                                  _vm.items.Jumlah_penumpang
+                                                value: _vm.items.nof
                                               },
                                               on: {
                                                 input: function($event) {
@@ -84123,7 +84075,345 @@ var render = function() {
                                                   }
                                                   _vm.$set(
                                                     _vm.items,
-                                                    "Jumlah_penumpang",
+                                                    "nof",
+                                                    $event.target.value
+                                                  )
+                                                }
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("span", [
+                                              _vm._v(_vm._s(errors[0]))
+                                            ])
+                                          ]
+                                        }
+                                      }
+                                    ],
+                                    null,
+                                    true
+                                  )
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _c("label", { attrs: { for: "tmp" } }, [
+                                  _vm._v("Total MB Processed")
+                                ]),
+                                _vm._v(" "),
+                                _c("ValidationProvider", {
+                                  attrs: {
+                                    name: "tmp",
+                                    rules: "integer|required"
+                                  },
+                                  scopedSlots: _vm._u(
+                                    [
+                                      {
+                                        key: "default",
+                                        fn: function(ref) {
+                                          var errors = ref.errors
+                                          return [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.items.tmp,
+                                                  expression: "items.tmp"
+                                                }
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: {
+                                                type: "text",
+                                                id: "tmp",
+                                                placeholder:
+                                                  "Enter Total MB Processed"
+                                              },
+                                              domProps: {
+                                                value: _vm.items.tmp
+                                              },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.items,
+                                                    "tmp",
+                                                    $event.target.value
+                                                  )
+                                                }
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("span", [
+                                              _vm._v(_vm._s(errors[0]))
+                                            ])
+                                          ]
+                                        }
+                                      }
+                                    ],
+                                    null,
+                                    true
+                                  )
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _c("label", { attrs: { for: "tp" } }, [
+                                  _vm._v("Throughput mb/sec")
+                                ]),
+                                _vm._v(" "),
+                                _c("ValidationProvider", {
+                                  attrs: {
+                                    name: "tp",
+                                    rules: "integer|required"
+                                  },
+                                  scopedSlots: _vm._u(
+                                    [
+                                      {
+                                        key: "default",
+                                        fn: function(ref) {
+                                          var errors = ref.errors
+                                          return [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.items.tp,
+                                                  expression: "items.tp"
+                                                }
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: {
+                                                type: "text",
+                                                id: "tp",
+                                                placeholder:
+                                                  "Enter Throughput mb/sec"
+                                              },
+                                              domProps: { value: _vm.items.tp },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.items,
+                                                    "tp",
+                                                    $event.target.value
+                                                  )
+                                                }
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("span", [
+                                              _vm._v(_vm._s(errors[0]))
+                                            ])
+                                          ]
+                                        }
+                                      }
+                                    ],
+                                    null,
+                                    true
+                                  )
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _c("label", { attrs: { for: "aio" } }, [
+                                  _vm._v("Avg IO rate mb/sec")
+                                ]),
+                                _vm._v(" "),
+                                _c("ValidationProvider", {
+                                  attrs: {
+                                    name: "aio",
+                                    rules: "integer|required"
+                                  },
+                                  scopedSlots: _vm._u(
+                                    [
+                                      {
+                                        key: "default",
+                                        fn: function(ref) {
+                                          var errors = ref.errors
+                                          return [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.items.aio,
+                                                  expression: "items.aio"
+                                                }
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: {
+                                                type: "text",
+                                                id: "aio",
+                                                placeholder:
+                                                  "Enter Avg IO rate mb/sec"
+                                              },
+                                              domProps: {
+                                                value: _vm.items.aio
+                                              },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.items,
+                                                    "aio",
+                                                    $event.target.value
+                                                  )
+                                                }
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("span", [
+                                              _vm._v(_vm._s(errors[0]))
+                                            ])
+                                          ]
+                                        }
+                                      }
+                                    ],
+                                    null,
+                                    true
+                                  )
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _c("label", { attrs: { for: "iostd" } }, [
+                                  _vm._v("IO rate std deviation")
+                                ]),
+                                _vm._v(" "),
+                                _c("ValidationProvider", {
+                                  attrs: {
+                                    name: "iostd",
+                                    rules: "integer|required"
+                                  },
+                                  scopedSlots: _vm._u(
+                                    [
+                                      {
+                                        key: "default",
+                                        fn: function(ref) {
+                                          var errors = ref.errors
+                                          return [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.items.iostd,
+                                                  expression: "items.iostd"
+                                                }
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: {
+                                                type: "text",
+                                                id: "iostd",
+                                                placeholder:
+                                                  "Enter IO rate std deviation"
+                                              },
+                                              domProps: {
+                                                value: _vm.items.iostd
+                                              },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.items,
+                                                    "iostd",
+                                                    $event.target.value
+                                                  )
+                                                }
+                                              }
+                                            }),
+                                            _vm._v(" "),
+                                            _c("span", [
+                                              _vm._v(_vm._s(errors[0]))
+                                            ])
+                                          ]
+                                        }
+                                      }
+                                    ],
+                                    null,
+                                    true
+                                  )
+                                })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "form-group" },
+                              [
+                                _c("label", { attrs: { for: "exec" } }, [
+                                  _vm._v("Test exec time sec")
+                                ]),
+                                _vm._v(" "),
+                                _c("ValidationProvider", {
+                                  attrs: {
+                                    name: "exec",
+                                    rules: "integer|required"
+                                  },
+                                  scopedSlots: _vm._u(
+                                    [
+                                      {
+                                        key: "default",
+                                        fn: function(ref) {
+                                          var errors = ref.errors
+                                          return [
+                                            _c("input", {
+                                              directives: [
+                                                {
+                                                  name: "model",
+                                                  rawName: "v-model",
+                                                  value: _vm.items.exec,
+                                                  expression: "items.exec"
+                                                }
+                                              ],
+                                              staticClass: "form-control",
+                                              attrs: {
+                                                type: "text",
+                                                id: "exec",
+                                                placeholder:
+                                                  "Enter Test exec time sec"
+                                              },
+                                              domProps: {
+                                                value: _vm.items.exec
+                                              },
+                                              on: {
+                                                input: function($event) {
+                                                  if ($event.target.composing) {
+                                                    return
+                                                  }
+                                                  _vm.$set(
+                                                    _vm.items,
+                                                    "exec",
                                                     $event.target.value
                                                   )
                                                 }
@@ -84193,26 +84483,24 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h4", { staticClass: "modal-title" }, [
-      _c("b", [_vm._v("Update Data  ")])
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h4", { staticClass: "modal-title" }, [
+        _c("b", [_vm._v("Update Data  ")])
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "close",
-        attrs: {
-          type: "button",
-          "data-dismiss": "modal",
-          "aria-label": "Close"
-        }
-      },
-      [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-    )
   }
 ]
 render._withStripped = true

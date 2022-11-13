@@ -13,24 +13,28 @@
    
     <!-- /.card-header -->
     <div class="card-body">
-      <table id="example2" class="table table-bordered table-hover">
+      <table id="example2" class="table table-bordered table-hover ">
         <thead>
           <tr>
             <th>No</th>
-            <th>Bulan</th>
-            <th>Index Bulan</th>
-            <th>Tahun</th>
-            <th>Jumlah Penumpang</th>
+            <th>No. Of files</th>
+            <th>Total MB Processed</th>
+            <th>Throughput mb/sec</th>
+            <th>Avg IO rate mb/sec</th>
+            <th>IO rate std deviation</th>
+            <th>Test exec time sec</th>
             <th v-if="statusAkun" >Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="(item,index) in dataPenumpang" :key="index">
             <td>{{++index}}</td>
-            <td>{{item.Bulan}}</td>
-            <td>{{item.Index_bulan}}</td>
-            <td>{{item.Tahun}}</td>
-            <td>{{item.Jumlah_penumpang}}</td>
+            <td>{{item.nof}}</td>
+            <td>{{item.tmp}}</td>
+            <td>{{item.tp}}</td>
+            <td>{{item.aio}}</td>
+            <td>{{item.iostd}}</td>
+            <td>{{item.exec}}</td>
             <td  >
               <div>
                 <button type="button" class="btn btn-primary" data-toggle="modal" @click="updateItem(item)" data-target="#modal-edit">
@@ -39,7 +43,7 @@
                 <div v-if="status" class="modal fade" id="modal-edit">
                   <modal-update-data @loadPenumpang="onLoadPenumpang" :items="dataUpdate"></modal-update-data>
                 </div>
-                <button class="btn btn-danger" v-show="index == dataPenumpang.length" @click="openDeleted(item.Id)">
+                <button class="btn btn-danger" v-show="index == dataPenumpang.length" @click="openDeleted(item.id)">
                   Delete
                 </button>
                 </div>
