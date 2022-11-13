@@ -2214,8 +2214,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-(0,vee_validate__WEBPACK_IMPORTED_MODULE_1__.extend)('integer', _objectSpread(_objectSpread({}, vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_2__.integer), {}, {
-  message: "This field must be integer "
+(0,vee_validate__WEBPACK_IMPORTED_MODULE_1__.extend)('double', _objectSpread(_objectSpread({}, vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_2__.double), {}, {
+  message: "This field must be double "
 }));
 (0,vee_validate__WEBPACK_IMPORTED_MODULE_1__.extend)('alpha', _objectSpread(_objectSpread({}, vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_2__.alpha), {}, {
   message: "This field must be character"
@@ -2355,8 +2355,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-(0,vee_validate__WEBPACK_IMPORTED_MODULE_1__.extend)('integer', _objectSpread(_objectSpread({}, vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_2__.integer), {}, {
-  message: "This field must be integer "
+(0,vee_validate__WEBPACK_IMPORTED_MODULE_1__.extend)('double', _objectSpread(_objectSpread({}, vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_2__.double), {}, {
+  message: "This field must be double "
 }));
 (0,vee_validate__WEBPACK_IMPORTED_MODULE_1__.extend)('alpha', _objectSpread(_objectSpread({}, vee_validate_dist_rules__WEBPACK_IMPORTED_MODULE_2__.alpha), {}, {
   message: "This field must be character"
@@ -83529,7 +83529,7 @@ var render = function() {
                                   _c("ValidationProvider", {
                                     attrs: {
                                       name: "nof",
-                                      rules: "integer|required"
+                                      rules: "double|required"
                                     },
                                     scopedSlots: _vm._u(
                                       [
@@ -83594,7 +83594,7 @@ var render = function() {
                                   _c("ValidationProvider", {
                                     attrs: {
                                       name: "tmp",
-                                      rules: "integer|required"
+                                      rules: "double|required"
                                     },
                                     scopedSlots: _vm._u(
                                       [
@@ -83659,7 +83659,7 @@ var render = function() {
                                   _c("ValidationProvider", {
                                     attrs: {
                                       name: "tp",
-                                      rules: "integer|required"
+                                      rules: "double|required"
                                     },
                                     scopedSlots: _vm._u(
                                       [
@@ -83723,7 +83723,7 @@ var render = function() {
                                   _c("ValidationProvider", {
                                     attrs: {
                                       name: "aio",
-                                      rules: "integer|required"
+                                      rules: "double|required"
                                     },
                                     scopedSlots: _vm._u(
                                       [
@@ -83788,7 +83788,7 @@ var render = function() {
                                   _c("ValidationProvider", {
                                     attrs: {
                                       name: "iostd",
-                                      rules: "integer|required"
+                                      rules: "double|required"
                                     },
                                     scopedSlots: _vm._u(
                                       [
@@ -83853,7 +83853,7 @@ var render = function() {
                                   _c("ValidationProvider", {
                                     attrs: {
                                       name: "exec",
-                                      rules: "integer|required"
+                                      rules: "double|required"
                                     },
                                     scopedSlots: _vm._u(
                                       [
@@ -84040,7 +84040,7 @@ var render = function() {
                                 _c("ValidationProvider", {
                                   attrs: {
                                     name: "nof",
-                                    rules: "integer|required"
+                                    rules: "double|required"
                                   },
                                   scopedSlots: _vm._u(
                                     [
@@ -84108,7 +84108,7 @@ var render = function() {
                                 _c("ValidationProvider", {
                                   attrs: {
                                     name: "tmp",
-                                    rules: "integer|required"
+                                    rules: "double|required"
                                   },
                                   scopedSlots: _vm._u(
                                     [
@@ -84176,7 +84176,7 @@ var render = function() {
                                 _c("ValidationProvider", {
                                   attrs: {
                                     name: "tp",
-                                    rules: "integer|required"
+                                    rules: "double|required"
                                   },
                                   scopedSlots: _vm._u(
                                     [
@@ -84242,7 +84242,7 @@ var render = function() {
                                 _c("ValidationProvider", {
                                   attrs: {
                                     name: "aio",
-                                    rules: "integer|required"
+                                    rules: "double|required"
                                   },
                                   scopedSlots: _vm._u(
                                     [
@@ -84310,7 +84310,7 @@ var render = function() {
                                 _c("ValidationProvider", {
                                   attrs: {
                                     name: "iostd",
-                                    rules: "integer|required"
+                                    rules: "double|required"
                                   },
                                   scopedSlots: _vm._u(
                                     [
@@ -84378,7 +84378,7 @@ var render = function() {
                                 _c("ValidationProvider", {
                                   attrs: {
                                     name: "exec",
-                                    rules: "integer|required"
+                                    rules: "double|required"
                                   },
                                   scopedSlots: _vm._u(
                                     [

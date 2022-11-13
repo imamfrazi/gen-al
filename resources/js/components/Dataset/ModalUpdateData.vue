@@ -15,42 +15,42 @@
                 <div class="card-body">
                   <div class="form-group">
                     <label for="nof">Number Of Files </label>
-                    <ValidationProvider name="nof" rules="integer|required" v-slot="{ errors }">
+                    <ValidationProvider name="nof" rules="double|required" v-slot="{ errors }">
                       <input type="text" v-model="items.nof" class="form-control" id="nof" placeholder="Enter Number Of Files">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
                   <div class="form-group">
                     <label for="tmp">Total MB Processed</label>
-                    <ValidationProvider name="tmp" rules="integer|required" v-slot="{ errors }">
+                    <ValidationProvider name="tmp" rules="double|required" v-slot="{ errors }">
                       <input type="text" v-model="items.tmp" class="form-control" id="tmp" placeholder="Enter Total MB Processed">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
                   <div class="form-group">
                     <label for="tp">Throughput mb/sec</label>
-                    <ValidationProvider name="tp" rules="integer|required" v-slot="{ errors }">
+                    <ValidationProvider name="tp" rules="double|required" v-slot="{ errors }">
                       <input type="text" v-model="items.tp" class="form-control" id="tp" placeholder="Enter Throughput mb/sec">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
                   <div class="form-group">
                     <label for="aio">Avg IO rate mb/sec</label>
-                    <ValidationProvider name="aio" rules="integer|required" v-slot="{ errors }">
+                    <ValidationProvider name="aio" rules="double|required" v-slot="{ errors }">
                       <input type="text" v-model="items.aio" class="form-control" id="aio" placeholder="Enter Avg IO rate mb/sec">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
                   <div class="form-group">
                     <label for="iostd">IO rate std deviation</label>
-                    <ValidationProvider name="iostd" rules="integer|required" v-slot="{ errors }">
+                    <ValidationProvider name="iostd" rules="double|required" v-slot="{ errors }">
                       <input type="text" v-model="items.iostd" class="form-control" id="iostd" placeholder="Enter IO rate std deviation">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
                   <div class="form-group">
                     <label for="exec">Test exec time sec</label>
-                    <ValidationProvider name="exec" rules="integer|required" v-slot="{ errors }">
+                    <ValidationProvider name="exec" rules="double|required" v-slot="{ errors }">
                       <input type="text" v-model="items.exec" class="form-control" id="exec" placeholder="Enter Test exec time sec">
                       <span>{{ errors[0] }}</span>
                     </ValidationProvider>
@@ -73,11 +73,11 @@
 </template>
 <script>
 import { ValidationProvider, ValidationObserver ,extend} from 'vee-validate';
-import { required, integer,alpha } from 'vee-validate/dist/rules';
+import { required, double,alpha } from 'vee-validate/dist/rules';
 import swal from 'sweetalert';
-extend('integer', {
-  ...integer,
-  message:"This field must be integer "
+extend('double', {
+  ...double,
+  message:"This field must be double "
 });
 extend('alpha', {
   ...alpha,
